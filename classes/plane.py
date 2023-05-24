@@ -8,6 +8,13 @@ class Plane(ABC):
         self.seat_map = {}
 
     def initialize_seat_map(self, rows, seats_per_row):
+        """
+        Initializes the seat map of the plane.
+
+        Args:
+            rows (int): Number of rows in the plane
+            seats_per_row (int): Number of seats per row in the plane
+        """
         for row in range(1, rows + 1):
             for seat_index in range(1, seats_per_row + 1):
                 seat_letter = chr(ord("A") + seat_index - 1)
