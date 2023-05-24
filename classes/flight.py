@@ -39,12 +39,15 @@ class Flight:
                 available_seats.append(seat)
         return available_seats
 
-    def show_reservation_details(self, passengers=None):
-        # TODO: Don't forget passengers, this function is not finished yet
-        details = textwrap.dedent(
-            f"""
-        The flight number is {self.flight_number}
-        and the plane is {self.plane}.
-        """
-        )
-        print(details)
+    def show_reservation_details(self, passengers):
+        for passenger in passengers:
+            details = textwrap.dedent(
+                f"""
+                Reservation details :
+                The flight number is {self.flight_number}
+                and the plane is {self.plane.registration_number}.
+                The passenger is {passenger.name}
+                Their seat is {passenger.seat}
+                """
+            )
+            print(details)

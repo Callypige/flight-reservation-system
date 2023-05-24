@@ -15,8 +15,7 @@ def main():
 
     # Try to assign seat for passenger
     flight.assign_seat(passenger_one)
-    print(flight.get_avalaible_seats())
-    print(passenger_one.seat)
+    flight.show_reservation_details([passenger_one])
 
 
 if __name__ == "__main__":
