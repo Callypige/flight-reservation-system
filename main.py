@@ -6,7 +6,7 @@ from classes.passenger import Passenger
 
 
 def main():
-    # Declare one passenger
+    # Declare passengers
     passenger_one = Passenger("Baghera")
     passenger_two = Passenger("Jones")
     # Declare plane
@@ -14,13 +14,20 @@ def main():
     # Declare flight with previous plane declared
     flight = Flight("AF123", airbusA220)
 
-    # Try to assign seat for passenger
+    # Assign seat for passengers
     flight.assign_seat([passenger_one, passenger_two])
     flight.show_reservation_details([passenger_one, passenger_two])
-    # CA NE LIBERE PAS LE SIEGE QUAND J'ATTRIBUE COMME CA
-    # flight.assign_seat(passenger_one)
-    # flight.show_reservation_details([passenger_one])
+
     print(flight.get_avalaible_seats())
+
+    # Reassign seat to passenger one
+    flight.assign_seat([passenger_one, passenger_two])
+
+    print("")
+    print("")
+
+    print(flight.get_avalaible_seats())
+    flight.show_reservation_details([passenger_one, passenger_two])
 
 
 if __name__ == "__main__":

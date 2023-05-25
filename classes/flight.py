@@ -22,21 +22,17 @@ class Flight:
         for passenger in passengers:
             available_seats = self.get_avalaible_seats()
             if available_seats:
+                if passenger.seat:
+                    # if passenger has already a seat
+                    # then free the old seat
+                    # and reattriute the new one
+                    self.plane.seat_map[passenger.seat] = None
                 seat = available_seats[0]
                 self.plane.seat_map[seat] = passenger
                 passenger.seat = seat
             else:
                 return False
         return True
-
-    # def reassign_seat(self, passengers: List[Passenger]):
-    #     # TODO
-    #     for passenger in passengers:
-    #         if passenger.seat is None:
-    #             print("There is no already seat attribute for {passenger.name}")
-    #             self.assign_seat(passenger)
-    #             print("Seat is attribute to {passenger.name} : {passenger.seat}")
-    #             return True
 
     def get_avalaible_seats(self):
         """
