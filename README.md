@@ -9,3 +9,5 @@ Implementation : <br/>
 
 ## Need to activate virtual env
 flight-reservation-system/Scripts/Activate
+
+### Run test with pytest
