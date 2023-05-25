@@ -3,6 +3,13 @@ from abc import ABC
 
 class Plane(ABC):
     def __init__(self, registration_number, capacity):
+        """
+        Initializes a Plane object.
+
+        Args:
+            registration_number (str): The registration number of the plane.
+            capacity (int): The maximum capacity of the plane.
+        """
         self.registration_number = registration_number
         self.capacity = capacity
         self.seat_map = {}
@@ -27,6 +34,15 @@ class Plane(ABC):
 
 class AirbusA320(Plane):
     def __init__(self, registration_number, capacity=120):
+        """
+        Initializes an AirbusA320 object.
+
+        Args:
+            registration_number (str): The registration
+              number of the AirbusA320.
+            capacity (int, optional): The maximum capacity
+            of the AirbusA320. Defaults to 120.
+        """
         super().__init__(registration_number, capacity=capacity)
         self.registration_number = registration_number
         super().initialize_seat_map()
@@ -34,6 +50,15 @@ class AirbusA320(Plane):
 
 class AirbusA220(Plane):
     def __init__(self, registration_number, capacity=180):
+        """
+        Initializes an AirbusA220 object.
+
+        Args:
+            registration_number (str): The registration number
+              of the AirbusA220.
+            capacity (int, optional): The maximum capacity
+            of the AirbusA220. Defaults to 180.
+        """
         capacity = 180
         super().__init__(registration_number, capacity=capacity)
         self.registration_number = registration_number
