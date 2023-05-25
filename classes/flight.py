@@ -20,12 +20,12 @@ class Flight:
             bool: True if the seat was successfully assigned, False otherwise.
         """
         for passenger in passengers:
-            available_seats = self.get_avalaible_seats()
+            available_seats = self.get_available_seats()
             if available_seats:
                 if passenger.seat:
-                    # if passenger has already a seat
+                    # if passenger already has a seat,
                     # then free the old seat
-                    # and reattriute the new one
+                    # and reassign the new one
                     self.plane.seat_map[passenger.seat] = None
                 seat = available_seats[0]
                 self.plane.seat_map[seat] = passenger
@@ -34,7 +34,7 @@ class Flight:
                 return False
         return True
 
-    def get_avalaible_seats(self):
+    def get_available_seats(self):
         """
         Retrieves the available seats on the plane.
 

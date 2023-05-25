@@ -18,7 +18,7 @@ def main():
     flight.assign_seat([passenger_one, passenger_two])
     flight.show_reservation_details([passenger_one, passenger_two])
 
-    print(flight.get_avalaible_seats())
+    print(flight.get_available_seats())
 
     # Reassign seat to passenger one
     flight.assign_seat([passenger_one, passenger_two])
@@ -26,7 +26,7 @@ def main():
     print("")
     print("")
 
-    print(flight.get_avalaible_seats())
+    print(flight.get_available_seats())
     flight.show_reservation_details([passenger_one, passenger_two])
 
 

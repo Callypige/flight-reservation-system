@@ -7,14 +7,17 @@ class Plane(ABC):
         self.capacity = capacity
         self.seat_map = {}
 
-    def initialize_seat_map(self, rows, seats_per_row):
+    def initialize_seat_map(self):
         """
         Initializes the seat map of the plane.
-
-        Args:
-            rows (int): Number of rows in the plane
-            seats_per_row (int): Number of seats per row in the plane
         """
+        seats_per_row = 1
+        rows = self.capacity
+
+        while rows * seats_per_row < self.capacity:
+            seats_per_row += 1
+            rows = int(self.capacity / seats_per_row)
+
         for row in range(1, rows + 1):
             for seat_index in range(1, seats_per_row + 1):
                 seat_letter = chr(ord("A") + seat_index - 1)
@@ -23,20 +26,15 @@ class Plane(ABC):
 
 
 class AirbusA320(Plane):
-    def __init__(self, registration_number):
-        row = 20
-        seats_per_row = 6
-        capacity = row * seats_per_row
+    def __init__(self, registration_number, capacity=120):
         super().__init__(registration_number, capacity=capacity)
         self.registration_number = registration_number
-        super().initialize_seat_map(row, seats_per_row)
+        super().initialize_seat_map()
 
 
 class AirbusA220(Plane):
-    def __init__(self, registration_number):
-        row = 30
-        seats_per_row = 6
-        capacity = row * seats_per_row
+    def __init__(self, registration_number, capacity=180):
+        capacity = 180
         super().__init__(registration_number, capacity=capacity)
         self.registration_number = registration_number
-        super().initialize_seat_map(row, seats_per_row)
+        super().initialize_seat_map()
